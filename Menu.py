@@ -19,6 +19,6 @@ class Menu:
             if event.message.text.lower() in self.__trigger_words:
                 self.pin.printPinList(event)
             elif event.message.text.lower() in self.__trigger_words2:
-                self.pin.clearPinList()
+                self.pin.clearPinList(event)
 
 
