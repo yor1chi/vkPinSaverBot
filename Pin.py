@@ -42,13 +42,16 @@ class Pin:
             'conversation_message_ids': [event.message.conversation_message_id],
             'is_reply': True
         })
+        if "'" in printData:
+            printData = printData.replace("'", '')
+
         self.vk.messages.send(
             key=(self.con.getKey()),
             server=(self.con.getServer()),
             ts=(self.con.getTs()),
             random_id=get_random_id(),
             forward=[json_query],
-            message=printData.replace("'", ''),
+            message=printData,
             chat_id=event.chat_id)
 
     def savePinList(self, event):
@@ -75,6 +78,6 @@ class Pin:
                     printData = printData + f'{i + 1}: {name[i]}, {attach[i]}' + '\n'
             if attach[i] == 'Empty' and text[i] != '':
                 printData = printData + f'{i + 1}: {name[i]}, {text[i]}' + '\n'
-            elif text[i] != '' and attach[i] == 'Empty':
+            elif text[i] != '' and attach[i] != 'Empty':
                 printData = printData + f'{i + 1}: {name[i]}, {text[i]}, {attach[i]}' + '\n'
         return printData
