@@ -4,6 +4,7 @@ import os
 
 
 class Connection:
+    __PORT = int(os.environ.get('PORT', 5000))
     __server = os.environ['SERVER']
     __token = os.environ['TOKEN']
     __key = os.environ['KEY']
