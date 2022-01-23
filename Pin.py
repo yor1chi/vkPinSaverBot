@@ -81,3 +81,9 @@ class Pin:
             elif text[i] != '' and attach[i] != 'Empty':
                 printData = printData + f'{i + 1}: {name[i]}, {text[i]}, {attach[i]}' + '\n'
         return printData
+
+    def clearPinList(self, event):
+        pinData = {}
+
+        with open('pin_data.json', 'w', encoding='utf-8') as f:
+            json.dump(pinData, f, ensure_ascii=False)

@@ -5,6 +5,7 @@ from Saver import Saver
 
 class Menu:
     __trigger_words = ['!закреп', '!звкреп', '!pfrhtg', '!закреа']
+    __trigger_words2 = ['!очистить', '!jxbcnbnm']
     con = Connection()
     pin = Pin()
     saver = Saver()
@@ -17,3 +18,7 @@ class Menu:
             self.pin.savePinList(event)
             if event.message.text.lower() in self.__trigger_words:
                 self.pin.printPinList(event)
+            elif event.message.text.lower() in self.__trigger_words2:
+                self.pin.clearPinList()
+
+
