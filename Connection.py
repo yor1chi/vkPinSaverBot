@@ -1,13 +1,14 @@
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll
+import os
 
 
 class Connection:
-    __server = 'your_server'
-    __token = 'your token'
-    __key = 'your key'
-    __ts = 'your ts'
-    __groupId = 'your group id'
+    __server = os.environ['SERVER']
+    __token = os.environ['TOKEN']
+    __key = os.environ['KEY']
+    __ts = os.environ['TS']
+    __groupId = os.environ['GROUP_ID']
 
     def getServer(self):
         return self.__server
